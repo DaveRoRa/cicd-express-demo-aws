@@ -34,7 +34,9 @@ app.use(express.json());
 
 // Health check endpoint
 app.get("/health", (req, res) => {
-  res.status(200).json({ status: "healthy" });
+  res
+    .status(200)
+    .json({ status: "healthy", secretValue: process.env.SECRET_VALUE });
 });
 
 const PORT = process.env.PORT || 3000;
